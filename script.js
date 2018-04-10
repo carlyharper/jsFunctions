@@ -268,9 +268,9 @@ function acronym(array) {
 //it will call fun passing from each item in arr to fun as the first argument. Example:
 
 
-var arr = [
+var array3 = [
     { name: 'Bob' },
-    { name: 'Alice'};
+    { name: 'Alice'},
     {name: 'Joe'}
 ];
 /*
@@ -280,12 +280,11 @@ forEach (arr, function(person) {
 */
 
 
-var forEach = function (arr, callback) {
+function forEach(array3, fun) {
 // loop over the input array
-// call the callback on each item of the array
-    for (var i = 0; i < array.length; i++) {
-        callback(arr[i]); 
-    }
+	for (var i=0; i<array3.length; i++) {
+		    fun(array3[i]);
+	}
 }
 
 
@@ -294,14 +293,16 @@ var forEach = function (arr, callback) {
 //a new array, with each of hte results being the result of calling fun with each array element.
 
 
-var map = function(arr, callback) {
+/*
+function map(array, fun) {
 //returm a new array
 // each item should be the result of the callback, passing in an individual item
-    var newArray = [];
-    for (var i = 0; i < arr.length ; i++) {
-        var item = arr[i];
-        var newItem = callback(item);
-        newArray.push(newItem);
+	var newArray = [];
+	for (var i=0; i<array.length; i++) {
+		var currentItem = array[i];
+		newArray.push(fun(currentItem));
+	}
+    return newArray;
 }
-
+*/
 
