@@ -162,10 +162,158 @@ var arr = [
     [2, 4, 6, 8]
 ]
 
-var arrSort = arr.sort(function(a, b){
-    return sum(a) < sum(b);
+arr.sort(function(a, b){
+    //if the sum of a's numbers is less than the sum of b's numbers
+    // then a comes first. return a negative number.
+
+    arr.sort(function(a,b){
+
+        var sum = function(acc, item){
+            return acc + item;
+        }
+        var aSum = a.reduce(sum, 0);
+        var bSum = b.reduce(sum, 0);
+
+        return aSum - bSum;
+    })
+
+    console.log(arr);
+
+    /*
+    var aSum = a.reduce(function(acc, item){
+        return acc = item;
+    }, 0);
+
+    var bSum = b.reduce(function(acc, item){
+        return acc + item;
+    }, 0)
+
+    //if the sum of b's numbers is less than the sum of a's numbers
+    // then b comes first. Return a positive number.
+});
+console.log(arr);
+*/
+
+
+//3 times:
+//Given this function: use the call3Times function to print "Hello, world!" 3 times.
+
+/*
+function call3Times(fun) {
+    fun();
+    fun();
+    fun();
+}
+*/
+
+call3Times(function(){
+    console.log("Hello, world!");
 })
-console.log(arrSort);
+
+
+//n times
+//You will write a function callNTimes that takes two arguments: 
+//times as a number, and fun as a function. It will call that function for that many times. Example:
+//You are allowed to use a loop in the implementation of callNTimes.
+
+/*
+callNTimes(5, hello)
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+*/
+
+function callNTimes(num, fun) {
+    for (var i=0; i < num.length; i++) {
+        fun();
+    }
+
+
+//sum an array
+//Write a function sum that takes an array of numbers as argument and returns the sum of those numbers. 
+// Use the reduce method to do this.
+
+function sum(array) {
+    return array.reduce(function(adding, currentValue) {
+        return adding + currentValue;
+    }, 0);
+}
+
+
+//Acronym
+//Write a function acronym that takes an array of words as argument and returns the acronym 
+// of the words. Use the reduce method to do this.
+
+acronym(['very', 'important', 'person'])
+'VIP'
+acronym(['national', 'aeronautics', 'space', 'administration'])
+'NASA'
+
+var acro = people.reduce(function(a,b){
+    return (a+b[0]) ;
+}, "");
+
+console.log(acro);
 
 
 
+//Bonus: forEach
+//implement your own custom forEach function which takes two arguments: an array arr and a function fun.
+//it will call fun passing from each item in arr to fun as the first argument. Example:
+
+/*
+var arr = [
+    { name: 'Bob' },
+    { name: 'Alice'};
+    {name: 'Joe'}
+];
+forEach (arr, function(person) {
+    console.log('Hello, ' + person.name + '!');
+})
+*/
+
+/*
+var forEach = function (arr, callback) {
+// loop over the input array
+// call the callback on each item of the array
+    for (var i = 0; i < array.length; i++) {
+        callback(arr[i]); 
+    }
+}
+
+forEach([1,2,3], function(item){
+    console.log(item);
+})
+*/
+
+
+//Bonus: Map
+//implement your own custom map function which takes two arguments an array arr and a function fun. it will return
+//a new array, with each of hte results being the result of calling fun with each array element.
+
+/*
+var map = function(arr, callback) {
+//returm a new array
+// each item should be the result of the callback, passing in an individual item
+    var newArray = [];
+
+for (var i = 0; i < arr.length ; i++) {
+    var item = arr[i];
+    var newItem = callback(item);
+    newArray.push(newItem);
+}
+
+    return newArray; 
+}
+
+var inputArray = [1, 2, 3];
+
+var result = map(inputArray, function(item){
+    return item * item;
+})
+
+console.log(result);
+console.log(inputArray);
+*/
